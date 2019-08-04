@@ -26,7 +26,7 @@ variable "zone_name" {
 
 variable "machine_type" {
     description = "Type of instance to deploy"
-    default     = "f1-micro"
+    default     = "n1-standard-1"
 }
 
 variable "instance_image" {
