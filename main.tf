@@ -5,6 +5,11 @@ provider "google" {
   region      = "${var.region_name}"
   zone        = "${var.zone_name}"
 }
+
+module "startup-scripts" {
+  source = "startupscript"
+  enable_setup_sudoers = true
+}
 //Aditional HDD
 resource "google_compute_disk" "default" {
   name = "minecraft-disk"
@@ -38,6 +43,9 @@ resource "google_compute_instance" "default" {
 
       }
   }
+  metadata_startup_script {
+      startup-script = "${module.startup-scripts.content}"
+  }
 }
 
 //Mount HDD
@@ -58,7 +66,7 @@ resource "google_compute_firewall" "default" {
   
 }
 //Bucket
-resource "google_storage_bucket" "mcs-bucket" {
+resource "google_storage_bucket" "default" {
     name     = "nlwilkingminecraftstoragebucket"
     location = "AU"
   
