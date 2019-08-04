@@ -28,7 +28,7 @@ resource "google_compute_instance" "default" {
         }
     }
   attached_disk {
-      device_name = "${google_compute_disk.default.self_link}"
+      source = "${google_compute_disk.default.self_link}"
   }
   network_interface {
       network = "${google_compute_network.vpc-network.name}"
@@ -54,7 +54,7 @@ resource "google_compute_firewall" "default" {
         protocol = "tcp"
         ports    = ["25565"]
     }
-    source_ranges = "0.0.0.0/0"
+    source_ranges = ["0.0.0.0/0"]
   
 }
 //Bucket
