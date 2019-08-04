@@ -51,7 +51,7 @@ resource "google_compute_instance" "default" {
       java -Xms1G -Xmx3G -d64 -jar server.jar nogui
       sed -i 's/false/true/g' eula.txt
       screen -S mcs java -Xms1G -Xmx3G -d64 -jar server.jar nogui
-      SCRIPTT
+      SCRIPT
   }
 }
 
