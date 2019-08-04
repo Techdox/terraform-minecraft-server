@@ -39,7 +39,17 @@ resource "google_compute_instance" "default" {
 
       }
   }
-  metadata_startup_script = "${file("startupscript")}"
+  metadata {
+      startup-script = <<SCRIPT
+      sudo mkdir -p /home/minecraft
+      sudo mkfs.ext4 -F -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/disk/by-id/google-minecraft-disk
+      sudo mount -o discard,defaults /dev/disk/by-id/google-minecraft-disk /home/minecraft
+      sudo apt-get update
+      sudo apt-get install -y default-jre-headless
+      cd /home/minecraft
+      wget https://launcher.mojang.com/v1/objects/f1a0073671057f01aa843443fef34330281333ce/server.jar
+      java -Xms1G -Xmx3G -d64 -jar server.jar nogui
+  }
 }
 
 //Mount HDD
