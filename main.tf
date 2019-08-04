@@ -44,7 +44,7 @@ resource "google_compute_instance" "default" {
       }
   }
   metadata_startup_script {
-      startup-script = "${module.startup-scripts.content}"
+      startup-script = "${module.startup-scripts.source}"
   }
 }
 
