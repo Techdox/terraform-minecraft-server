@@ -49,7 +49,9 @@ resource "google_compute_instance" "default" {
       cd /home/minecraft
       wget https://launcher.mojang.com/v1/objects/f1a0073671057f01aa843443fef34330281333ce/server.jar
       java -Xms1G -Xmx3G -d64 -jar server.jar nogui
-      SCRIPT
+      sed -i 's/false/true/g' eula.txt
+      screen -S mcs java -Xms1G -Xmx3G -d64 -jar server.jar nogui
+      SCRIPTT
   }
 }
 
