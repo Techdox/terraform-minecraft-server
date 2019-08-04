@@ -55,23 +55,31 @@ resource "google_compute_instance" "default" {
   }
 }
 
-//Mount HDD
-//Startup script
-//firewall rule
+//Network creation
 resource "google_compute_network" "vpc-network" {
     name = "${var.instance_network}"
 }
-
+//firewall rules
 resource "google_compute_firewall" "default" {
     name = "allow-mcs"
     network= "${google_compute_network.vpc-network.name}"
     allow {
         protocol = "tcp"
-        ports    = ["25565","22"]
+        ports    = ["25565"]
     }
-    source_ranges = ["0.0.0.0/0"]
-
+    source_ranges = ["${google_compute_instance.default.network_interface.0.network_ip}"]
 }
+
+resource "google_compute_firewall" "defaultssh" {
+    name = "allow-ssh"
+    network= "${google_compute_network.vpc-network.name}"
+    allow {
+        protocol = "tcp"
+        ports    = ["22"]
+    }
+    source_ranges = ["${google_compute_instance.default.network_interface.0.network_ip}"]
+}
+
 //Bucket
 resource "google_storage_bucket" "default" {
     name     = "nlwilkingminecraftstoragebucket2019"
