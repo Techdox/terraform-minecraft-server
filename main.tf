@@ -6,10 +6,6 @@ provider "google" {
   zone        = "${var.zone_name}"
 }
 
-module "startup-scripts" {
-  source = "startupscript"
-  enable_setup_sudoers = true
-}
 //Aditional HDD
 resource "google_compute_disk" "default" {
   name = "minecraft-disk"
@@ -43,9 +39,7 @@ resource "google_compute_instance" "default" {
 
       }
   }
-  metadata_startup_script {
-      startup-script = "${module.startup-scripts.source}"
-  }
+  metadata_startup_script = "${file("startupscript")}"
 }
 
 //Mount HDD
@@ -60,15 +54,12 @@ resource "google_compute_firewall" "default" {
     network= "${google_compute_network.vpc-network.name}"
     allow {
         protocol = "tcp"
-        ports    = ["25565"]
+        ports    = ["25565","22"]
     }
     source_ranges = ["0.0.0.0/0"]
-  
+
 }
 //Bucket
 resource "google_storage_bucket" "default" {
-    name     = "nlwilkingminecraftstoragebucket"
-    location = "AU"
-  
+    name     = "nlwilkingminecraftstoragebucket2019"
 }
-
