@@ -39,7 +39,7 @@ resource "google_compute_instance" "default" {
 
       }
   }
-  metadata = {
+  metadata {
       startup-script = <<SCRIPT
       mkdir -p /home/minecraft
       mkfs.ext4 -F -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/disk/by-id/google-minecraft-disk
@@ -47,10 +47,10 @@ resource "google_compute_instance" "default" {
       apt-get update
       apt-get install -y default-jre-headless
       cd /home/minecraft
-      wget https://launcher.mojang.com/v1/objects/f1a0073671057f01aa843443fef34330281333ce/server.jar
+      wget https://launcher.mojang.com/v1/objects/3dc3d84a581f14691199cf6831b71ed1296a9fdf/server.jar
       java -Xms1G -Xmx3G -d64 -jar server.jar nogui
       sed -i 's/false/true/g' eula.txt
-      screen -S mcs java -Xms1G -Xmx3G -d64 -jar server.jar nogui
+      java -Xms1G -Xmx3G -d64 -jar server.jar nogui
       SCRIPT
   }
 }
