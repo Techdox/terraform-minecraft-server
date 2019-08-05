@@ -67,7 +67,7 @@ resource "google_compute_firewall" "default" {
         protocol = "tcp"
         ports    = ["25565"]
     }
-    source_ranges = ["${google_compute_instance.default.network_interface.0.network_ip}"]
+    source_ranges = ["0.0.0.0/0"]
 }
 
 resource "google_compute_firewall" "defaultssh" {
@@ -77,7 +77,7 @@ resource "google_compute_firewall" "defaultssh" {
         protocol = "tcp"
         ports    = ["22"]
     }
-    source_ranges = ["${google_compute_instance.default.network_interface.0.network_ip}"]
+    source_ranges = ["0.0.0.0/0"]
 }
 
 //Bucket
