@@ -84,3 +84,8 @@ resource "google_compute_firewall" "defaultssh" {
 resource "google_storage_bucket" "default" {
     name     = "nlwilkingminecraftstoragebucket2019"
 }
+
+//IP Of Server
+output "serverip" {
+  value = "${google_compute_address.static-ip-address.address}"
+}
