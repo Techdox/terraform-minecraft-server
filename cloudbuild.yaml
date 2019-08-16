@@ -2,7 +2,7 @@ steps:
 # 1. Fetch the source code
 - name: gcr.io/cloud-builders/git
   id: build-repo
-  args: ['clone', 'https://github.com/Techdox/gcp_mvc']
+  args: ['clone', 'https://github.com/Techdox/terraform-minecraft-server']
 
 # 2a. Set up GCS & BQ etc. using public terraform Docker image
 - name: hashicorp/terraform
