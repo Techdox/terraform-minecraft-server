@@ -1,6 +1,6 @@
 variable "instance_network" {
   description = "Network for the instance"
-  default     = "vpc_network"
+  default     = "mcnetwork"
 }
 
 variable "instance_name" {
@@ -10,7 +10,7 @@ variable "instance_name" {
 
 variable "project_name" {
     description = "Project name where resources will be deployed"
-    default     = "terraform-practice-nlw"
+    default     = "techdox-mvc-dev"
 }
 
 variable "region_name" {
