@@ -5,7 +5,7 @@ variable "instance_network" {
 
 variable "instance_name" {
     description = "name for instance"
-    default     = "terraform_instance"
+    default     = "mcvm"
   }
 
 variable "project_name" {
