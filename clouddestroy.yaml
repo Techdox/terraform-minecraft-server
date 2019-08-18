@@ -13,7 +13,7 @@ steps:
 # 2b. Create the GCS bucket using Terraform
 - name: hashicorp/terraform
   id: terraform-plan
-  args: ['destroy']
+  args: ['destroy', '-auto-approve']
   dir: '.'
 
   
