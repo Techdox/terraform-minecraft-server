@@ -14,5 +14,3 @@ To Do:
 
 - Create a step by step guide
 - Automate backups
-
-![alt text](https://ibb.co/jMsNtB6)
