@@ -14,4 +14,5 @@ To Do:
 
 - Create a step by step guide
 - Automate backups
-![alt text](https://drive.google.com/file/d/1R2VhaQ86h3rqiXH1fn8x5CcNNR0h0Xht/view?usp=sharing)
+
+![alt text](https://ibb.co/jMsNtB6)
