@@ -10,7 +10,7 @@ variable "instance_name" {
 
 variable "project_name" {
     description = "Project name where resources will be deployed"
-    default     = "techdox-mvc-dev"
+    default     = "tech-test-env"
 }
 
 variable "region_name" {
