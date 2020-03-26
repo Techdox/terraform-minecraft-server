@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket  = "tf-backend-techdox"
+    bucket  = "tf-backend-minecraft"
     prefix  = "terraform/state"
   }
 }

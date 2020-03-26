@@ -10,7 +10,7 @@ variable "instance_name" {
 
 variable "project_name" {
     description = "Project name where resources will be deployed"
-    default     = "tech-test-env"
+    default     = "minecraft-server-terraform"
 }
 
 variable "region_name" {

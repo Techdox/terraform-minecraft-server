@@ -46,7 +46,7 @@ resource "google_compute_instance" "default" {
       apt-get update
       apt-get install -y default-jre-headless
       cd /home/minecraft
-      wget https://launcher.mojang.com/v1/objects/3dc3d84a581f14691199cf6831b71ed1296a9fdf/server.jar
+      wget https://launcher.mojang.com/v1/objects/bb2b6b1aefcd70dfd1892149ac3a215f6c636b07/server.jar
       java -Xms1G -Xmx3G -d64 -jar server.jar nogui
       sed -i 's/false/true/g' eula.txt
       java -Xms1G -Xmx3G -d64 -jar server.jar nogui
@@ -81,5 +81,5 @@ resource "google_compute_firewall" "defaultssh" {
 
 //Bucket
 resource "google_storage_bucket" "default" {
-    name     = "nlwilkingminecraftstoragebucket2019"
+    name     = "nlwilkingminecraftstoragebucket2020"
 }
